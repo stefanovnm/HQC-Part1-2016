@@ -2,10 +2,10 @@
 
 
 ### Task 1. Formatting C#
-*	Format correctly the given C# code given in the file `events.cs`.
+*	Format correctly the given C# code given in the file 'events.cs' and 'bunnies.cs'.
 
 ### Task 2. Formatting JavaScript
-*	Format correctly the given JavaScript code given in the file`code.js`.
+*	Format correctly the given JavaScript code given in the file 'code.js'.
 
 Use the official code conventions for C# / JavaScript / Java / PHP:
 - [Official C# Coding Conventions (MSDN)](https://msdn.microsoft.com/en-us/library/ff926074.aspx)
