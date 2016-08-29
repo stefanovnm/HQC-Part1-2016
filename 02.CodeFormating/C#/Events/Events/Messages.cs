@@ -1,10 +1,18 @@
-﻿namespace Events
-{
-    using System.Text;
+﻿using System.Text;
 
+namespace Events
+{
     public static class Messages
     {
-        public static StringBuilder output = new StringBuilder();
+        private static StringBuilder output = new StringBuilder();
+
+        public static StringBuilder Output
+        {
+            get
+            {
+                return output;
+            }
+        }
 
         public static void EventAdded()
         {

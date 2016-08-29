@@ -1,8 +1,8 @@
-﻿namespace Events
-{
-    using System;
-    using System.Text;
+﻿using System;
+using System.Text;
 
+namespace Events
+{
     public class Event : IComparable
     {
         private DateTime date;
@@ -37,10 +37,9 @@
         public int CompareTo(object obj)
         {
             Event other = obj as Event;
-
-            int byDate = this.date.CompareTo(other.date);
-            int byTitle = this.title.CompareTo(other.title);
-            int byLocation = this.location.CompareTo(other.location);
+            int byDate = this.Date.CompareTo(other.date);
+            int byTitle = this.Title.CompareTo(other.title);
+            int byLocation = this.Location.CompareTo(other.location);
 
             if (byDate == 0)
             {
@@ -61,18 +60,18 @@
 
         public override string ToString()
         {
-            StringBuilder toString = new StringBuilder();
+            StringBuilder result = new StringBuilder();
 
-            toString.Append(date.ToString("yyyy-MM-ddTHH:mm:ss"));
+            result.Append(this.Date.ToString("yyyy-MM-ddTHH:mm:ss"));
 
-            toString.Append(" | " + this.Title);
+            result.Append(" | " + this.Title);
 
             if (!string.IsNullOrEmpty(this.Location))
             {
-                toString.Append(" | " + this.Location);
+                result.Append(" | " + this.Location);
             }
 
-            return toString.ToString();
+            return result.ToString();
         }
     }
 }

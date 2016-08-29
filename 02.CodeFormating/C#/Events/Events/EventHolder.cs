@@ -1,19 +1,19 @@
-﻿namespace Events
-{
-    using System;
-    using Wintellect.PowerCollections;
+﻿using System;
+using Wintellect.PowerCollections;
 
+namespace Events
+{
     public class EventHolder
     {
-        MultiDictionary<string, Event> groupByTitle = new MultiDictionary<string, Event>(true);
-        OrderedBag<Event> groupByDate = new OrderedBag<Event>();
+        private MultiDictionary<string, Event> groupByTitle = new MultiDictionary<string, Event>(true);
+        private OrderedBag<Event> groupByDate = new OrderedBag<Event>();
 
         public void AddEvent(DateTime date, string title, string location)
         {
             Event newEvent = new Event(date, title, location);
 
-            groupByTitle.Add(title.ToLower(), newEvent);
-            groupByDate.Add(newEvent);
+            this.groupByTitle.Add(title.ToLower(), newEvent);
+            this.groupByDate.Add(newEvent);
             Messages.EventAdded();
         }
 
@@ -22,20 +22,19 @@
             string title = titleToDelete.ToLower();
             int removed = 0;
 
-            foreach (var eventToRemove in groupByTitle[title])
+            foreach (var eventToRemove in this.groupByTitle[title])
             {
                 removed++;
-                groupByDate.Remove(eventToRemove);
+                this.groupByDate.Remove(eventToRemove);
             }
 
-            groupByTitle.Remove(title);
+            this.groupByTitle.Remove(title);
             Messages.EventDeleted(removed);
         }
 
         public void ListEvents(DateTime date, int count)
         {
-            OrderedBag<Event>.View eventsToShow = groupByDate.RangeFrom(new Event(date, "", ""), true);
-
+            OrderedBag<Event>.View eventsToShow = this.groupByDate.RangeFrom(new Event(date, string.Empty, string.Empty), true);
             int showed = 0;
 
             foreach (var eventToShow in eventsToShow)

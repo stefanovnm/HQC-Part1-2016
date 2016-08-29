@@ -1,8 +1,7 @@
-﻿namespace Events
-{
-    using System;
-    using System.Text;
+﻿using System;
 
+namespace Events
+{
     public class Program
     {
         private static EventHolder events = new EventHolder();
@@ -11,10 +10,9 @@
         {
             while (ExecuteNextCommand())
             {
-                
             }
 
-            Console.WriteLine(Messages.output);
+            Console.WriteLine(Messages.Output);
         }
 
         private static bool ExecuteNextCommand()
@@ -38,13 +36,12 @@
         }
 
         private static void ListEvents(string command)
-
         {
             int pipeIndex = command.IndexOf('|');
             DateTime date = GetDate(command, "ListEvents");
             string countString = command.Substring(pipeIndex + 1);
-
             int count = int.Parse(countString);
+
             events.ListEvents(date, count);
         }
 
@@ -69,18 +66,16 @@
         {
             dateAndTime = GetDate(commandForExecution, commandType);
             int firstPipeIndex = commandForExecution.IndexOf('|');
-
-
             int lastPipeIndex = commandForExecution.LastIndexOf('|');
 
             if (firstPipeIndex == lastPipeIndex)
             {
                 eventTitle = commandForExecution.Substring(firstPipeIndex + 1).Trim();
-                eventLocation = "";
+                eventLocation = string.Empty;
             }
             else
             {
-                eventTitle = commandForExecution.Substring(firstPipeIndex + 1,lastPipeIndex - firstPipeIndex - 1).Trim();
+                eventTitle = commandForExecution.Substring(firstPipeIndex + 1, lastPipeIndex - firstPipeIndex - 1).Trim();
                 eventLocation = commandForExecution.Substring(lastPipeIndex + 1).Trim();
             }
         }
