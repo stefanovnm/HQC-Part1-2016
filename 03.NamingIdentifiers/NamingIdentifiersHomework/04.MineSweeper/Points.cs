@@ -15,15 +15,16 @@
             this.CurrentPoints = points;
         }
 
+        // can be done with automatic properties if no validation is done...
         public string Name
         {
-            get { return name; }
+            get { return this.name; }
             set { this.name = value; }
         }
 
         public int CurrentPoints
         {
-            get { return points; }
+            get { return this.points; }
             set { this.points = value; }
         }
     }

@@ -1,7 +1,7 @@
 function IsMozillaBrowser() {
-var currentWindow= window,
-	browser = currentWindow.navigator.appCodeName,
-	isMozilla = browser === "Mozilla";
+	var currentWindow = window,
+		browser = currentWindow.navigator.appCodeName,
+		isMozilla = browser === "Mozilla";
 
 	if(isMozilla) {
 		alert("Yes");
@@ -9,5 +9,5 @@ var currentWindow= window,
 		alert("No");
 	}
 }
-console.log("test");
-IsMozillaBrowser();
+
+console.log("Always is Mozilla :)");
